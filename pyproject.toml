@@ -3,4 +3,12 @@ name = "accountingassistant"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastapi[standard]>=0.119.0",
+    "google-cloud-storage>=3.4.1",
+    "jinja2>=3.1.6",
+    "openai>=2.3.0",
+    "pymupdf>=1.26.5",
+    "pytesseract>=0.3.13",
+    "requests>=2.32.5",
+]
