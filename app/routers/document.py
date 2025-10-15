@@ -7,8 +7,8 @@ from app.services.signed_url import generate_signed_url
 documents_router = APIRouter()
 
 
-@documents_router.post("/extract-information")
-def extract_information(blob_name: str):
+@documents_router.post("/validate")
+def validate_document(blob_name: str):
     try:
         # Generar una URL firmada
         signed_url = generate_signed_url(blob_name)

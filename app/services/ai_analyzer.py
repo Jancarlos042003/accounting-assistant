@@ -5,7 +5,7 @@ Procesa texto extraído de documentos y devuelve JSON estructurado
 
 from openai import OpenAI
 from typing import Dict, List, Any
-from app.schemas.ai_response import InvoiceDataSchema
+from app.schemas.ai_response import InvoiceValidationResponse
 from app.services.prompt_library import PromptLibrary
 
 prompt_lib = PromptLibrary()
@@ -63,7 +63,7 @@ Texto del documento:
         try:
             return self._parse_response(
                 content=prompt,
-                text_format=InvoiceDataSchema,
+                text_format=InvoiceValidationResponse,
             )
         except Exception as e:
             return _get_error_response(e)
@@ -96,7 +96,7 @@ Texto del documento:
         try:
             return self._parse_response(
                 content=content,
-                text_format=InvoiceDataSchema,
+                text_format=InvoiceValidationResponse,
                 model="gpt-4.1-mini"
             )
         except Exception as e:

@@ -11,19 +11,11 @@
   - Fecha de emisión
   - Monto total
 - **Si falta información crítica**, márcalo como no válido
-- **Si NO estás seguro sobre la validez del documento o la exactitud de los datos extraídos**, establece `"requires_human_review": true` en la respuesta
 - **Para `confidence_score`**, usa valores entre 0.0 y 1.0 basándote en:
   - Claridad y legibilidad del documento
   - Completitud de los datos requeridos
   - Consistencia entre campos relacionados
   - Presencia de elementos oficiales SUNAT
-- **Criterios para requerir revisión humana (`requires_human_review: true`):**
-  - `confidence_score` menor a 0.7
-  - Inconsistencias en cálculos (subtotales, IGV, totales)
-  - Información ambigua o difícil de leer
-  - Campos críticos con valores dudosos
-  - Formato inusual o no estándar del documento
-  - Cualquier duda sobre la validez o exactitud de los datos extraídos
 
 Responde **solo con un objeto JSON válido** siguiendo exactamente el formato del esquema.
 No incluyas ```json ni texto adicional.
