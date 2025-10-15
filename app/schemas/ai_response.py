@@ -60,22 +60,22 @@ class TotalsSchema(BaseModel):
     free_operations: Decimal = Field(..., description="Valor de venta de operaciones gratuitas")
 
 
-class InvoiceDataSchema(BaseModel):
-    """Esquema principal que contiene todos los datos de la factura"""
-    issuer: IssuerSchema
-    receiver: ReceiverSchema
-    invoice_info: InvoiceInfoSchema
-    items: List[ItemSchema]
-    detraction: DetractionSchema
-    credit: CreditSchema
-    totals: TotalsSchema
-
-
-class InvoiceValidationResponse(BaseModel):
-    """Schema para la respuesta completa de validación de una factura electrónica"""
-    is_valid: bool = Field(..., description="Si el documento es una factura electrónica válida")
-    requires_human_review: bool = Field(default=False, description="Indica si el documento requiere revisión humana")
-    validation_message: str = Field(..., description="Mensaje explicando la validación")
-    confidence_score: float = Field(default=0.0, ge=0.0, le=1.0, description="Score de confianza 0.0-1.0")
-    data: InvoiceDataSchema = Field(..., description="Datos extraídos de una factura electrónica peruana")
-    missing_fields: List[str] = Field(default_factory=list, description="Campos críticos faltantes")
+# class InvoiceDataSchema(BaseModel):
+#     """Esquema principal que contiene todos los datos de la factura"""
+#     issuer: IssuerSchema
+#     receiver: ReceiverSchema
+#     invoice_info: InvoiceInfoSchema
+#     items: List[ItemSchema]
+#     detraction: DetractionSchema
+#     credit: CreditSchema
+#     totals: TotalsSchema
+#
+#
+# class InvoiceValidationResponse(BaseModel):
+#     """Schema para la respuesta completa de validación de una factura electrónica"""
+#     is_valid: bool = Field(..., description="Si el documento es una factura electrónica válida")
+#     requires_human_review: bool = Field(default=False, description="Indica si el documento requiere revisión humana")
+#     validation_message: str = Field(..., description="Mensaje explicando la validación")
+#     confidence_score: float = Field(default=0.0, ge=0.0, le=1.0, description="Score de confianza 0.0-1.0")
+#     data: InvoiceDataSchema = Field(..., description="Datos extraídos de una factura electrónica peruana")
+#     missing_fields: List[str] = Field(default_factory=list, description="Campos críticos faltantes")
